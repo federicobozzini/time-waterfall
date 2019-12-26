@@ -14,4 +14,15 @@ describe('App rendering', () => {
     expect(numberElement).toBeInTheDocument();
   });
 
+  test('renders 4 svg elements', () => {
+    const { container } = render(<App world={world} />);
+    const svgElements = container.querySelectorAll('text');
+    expect(svgElements.length).toBe(4);
+  });
+
+  test('renders the full app', () => {
+    const { container } = render(<App world={world} />);
+    expect(container).toMatchSnapshot();
+  });
+
 });

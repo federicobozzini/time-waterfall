@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App rendering renders the full app 1`] = `
+<div>
+  <svg
+    id="app"
+    preserveAspectRatio="none"
+    viewBox="0 0 100 100"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <text
+      font-size="12"
+      transform="rotate(-30, 95, 40)"
+      x="95"
+      y="40"
+    >
+      8
+    </text>
+    <text
+      font-size="8"
+      transform="rotate(5, 40, 90)"
+      x="40"
+      y="90"
+    >
+      4
+    </text>
+    <text
+      font-size="22"
+      transform="rotate(-70, 20, 15)"
+      x="20"
+      y="15"
+    >
+      3
+    </text>
+    <text
+      font-size="8"
+      transform="rotate(10, 85, 75)"
+      x="85"
+      y="75"
+    >
+      1
+    </text>
+  </svg>
+</div>
+`;
