@@ -1,13 +1,27 @@
 import React from 'react'
 import './App.css';
+import { World, Element } from './World';
 
-const App: React.FC = () => {
+interface AppProps {
+
+  readonly world: World;
+
+}
+
+const App: React.FC<AppProps> = ({ world }) => {
   return (
     <svg viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" id='app'>
-      <text x="95" y="40" fontSize="12" transform="rotate(-30, 95, 40)">8</text>
-      <text x="40" y="90" fontSize="8" transform="rotate(5, 40, 90)">4</text>
-      <text x="20" y="15" fontSize="22" transform="rotate(-70, 20, 15)">3</text>
-      <text x="85" y="75" fontSize="8" transform="rotate(10, 85, 75)">1</text>
+      { world.getElements().map((e: Element, i: number) =>
+        <text
+          x={e.x}
+          y={e.y}
+          fontSize={e.size}
+          transform={`rotate(${e.angle}, ${e.x}, ${e.y})`}
+          key={`el-${i}`}
+        >
+            {e.value}
+        </text>
+      )}
     </svg>
   );
 }
