@@ -3,7 +3,7 @@ import { render, act } from '@testing-library/react';
 import App from './App';
 import { World } from './World';
 import { Timer } from './Timer';
-import { times } from './test-utilities';
+import { times } from './utilities';
 
 const timer = new Timer();
 let world: World; 

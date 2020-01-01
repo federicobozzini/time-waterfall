@@ -1,6 +1,6 @@
 import { World } from './World';
 import { Timer } from './Timer';
-import { times } from './test-utilities';
+import { times } from './utilities';
 
 let world: World;
 let timer: Timer;
