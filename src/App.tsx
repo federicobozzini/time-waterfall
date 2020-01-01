@@ -27,7 +27,7 @@ const App: React.FC<AppProps> = ({ world }) => {
           x={e.x}
           y={e.y}
           fontSize={e.size}
-          transform={`rotate(${e.angle}, ${e.x}, ${e.y})`}
+          transform={`rotate(${e.angle})`}
           key={`el-${i}`}
         >
             {e.value}

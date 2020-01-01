@@ -26,4 +26,6 @@ body {
 text {
   fill: white;
   font-family: digital-clock-font;
+  transform-box: fill-box;
+  transform-origin: center;
 }
