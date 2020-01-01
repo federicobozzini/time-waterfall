@@ -30,7 +30,7 @@ const App: React.FC<AppProps> = ({ world }) => {
           transform={`rotate(${e.angle})`}
           key={`el-${i}`}
         >
-            {e.value}
+            {Math.ceil(e.value)}
         </text>
       )}
     </svg>

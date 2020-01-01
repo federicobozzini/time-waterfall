@@ -1,6 +1,6 @@
 export type OnTickCallback = (interval: number) => void;
 
-export const MS_INTERVAL = 10;
+export const MS_INTERVAL = 15;
 
 export class Timer {
 
