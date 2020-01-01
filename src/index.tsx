@@ -4,8 +4,11 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { World } from './World';
+import { Timer } from './Timer';
 
-const world = new World();
+const timer = new Timer();
+const world = new World(timer);
+timer.start();
 
 ReactDOM.render(<App world={world}/>, document.getElementById('root'));
 

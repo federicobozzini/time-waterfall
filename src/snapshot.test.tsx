@@ -3,7 +3,7 @@ import puppeteer from 'puppeteer';
 
 expect.extend({ toMatchImageSnapshot });
 
-describe('snapshot testing', () => {
+describe.skip('snapshot testing', () => {
 
     let browser: puppeteer.Browser;
 

@@ -1,28 +1,45 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, act } from '@testing-library/react';
 import App from './App';
 import { World } from './World';
+import { Timer } from './Timer';
+import { times } from './test-utilities';
 
-
-const world = new World();
+const timer = new Timer();
+let world: World; 
+let container: HTMLElement;
 
 describe('App rendering', () => {
 
-  test('renders an element', () => {
-    const { getByText } = render(<App world={world} />);
-    const numberElement = getByText(/8/i);
-    expect(numberElement).toBeInTheDocument();
-  });
+  beforeEach(() => {
+    world = new World(timer);
+    container = render(<App world={world} />).container;
+  })
 
   test('renders 4 svg elements', () => {
-    const { container } = render(<App world={world} />);
-    const svgElements = container.querySelectorAll('text');
+    
+    const svgElements = container!.querySelectorAll('text');
     expect(svgElements.length).toBe(4);
+
+    act(() => {
+      times(2000, () => timer.tick());
+    });
+
+    const finalSvgElements = container!.querySelectorAll('text');
+    expect(finalSvgElements.length).toBe(0);
+
   });
 
   test('renders the full app', () => {
-    const { container } = render(<App world={world} />);
-    expect(container).toMatchSnapshot();
+
+      expect(container).toMatchSnapshot();
+
+      act(() => {
+        times(2000, () => timer.tick());
+      });
+
+      expect(container).toMatchSnapshot();
+
   });
 
 });

@@ -43,3 +43,14 @@ exports[`App rendering renders the full app 1`] = `
   </svg>
 </div>
 `;
+
+exports[`App rendering renders the full app 2`] = `
+<div>
+  <svg
+    id="app"
+    preserveAspectRatio="none"
+    viewBox="0 0 100 100"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</div>
+`;
