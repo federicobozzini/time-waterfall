@@ -3,7 +3,3 @@ export const times = (n: number, f: () => void) => {
         f();
     }
 };
-
-export const random = (min: number, max: number) => {
-    return Math.random() * (max - min) + min;
-}

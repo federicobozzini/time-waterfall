@@ -1,15 +1,18 @@
 import { World } from './World';
 import { Timer } from './Timer';
 import { times } from './utilities';
+import { Random } from './Random';
 
 let world: World;
+let random: Random;
 let timer: Timer;
 
 describe('World', () => {
 
     beforeEach(() => {
         timer = new Timer();
-        world = new World(timer);
+        random = new Random('test');
+        world = new World(timer, random);
     });
 
     test('fires onUpdate event on tick', () => {
@@ -24,31 +27,18 @@ describe('World', () => {
     });
 
 
-    test('should update elements', () => {
-        const n = 10;
+    test('elements should change', () => {
+        const ns = [0, 10, 100, 500, 2000, 5000, 10000];
 
-        const initialElements = world.getElements();
+        ns.forEach(n => {
 
-        times(n, () => timer.tick());
+            times(n, () => timer.tick());
+    
+            const finalElements = world.getElements();
+    
+            expect(finalElements).toMatchSnapshot();
 
-        const finalElements = world.getElements();
-
-        expect(finalElements.length).toBe(initialElements.length);
-
-        for (let i=0; i<initialElements.length; i++) {
-            expect(finalElements[i].y).toBeGreaterThan(initialElements[i].y);
-        }
-    });
-
-
-    test('should delete elements after a while', () => {
-        const n = 2000;
-
-        times(n, () => timer.tick());
-
-        const finalElements = world.getElements();
-
-        expect(finalElements.length).toBe(0);
+        });
     });
 
 });

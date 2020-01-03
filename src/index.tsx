@@ -6,10 +6,12 @@ import * as serviceWorker from './serviceWorker';
 import { World } from './World';
 import { Timer } from './Timer';
 import { times } from './utilities';
+import { Random } from './Random';
 
 const initialRuns = 1500;
 const timer = new Timer();
-const world = new World(timer);
+const random = new Random();
+const world = new World(timer, random);
 times(initialRuns, () => timer.tick());
 timer.start();
 

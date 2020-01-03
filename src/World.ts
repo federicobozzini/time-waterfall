@@ -1,5 +1,5 @@
 import { Timer } from "./Timer";
-import { random } from "./utilities";
+import { Random } from "./Random";
 
 type OnElementsUpdate = (elements: Element[]) => void;
 
@@ -50,7 +50,7 @@ export class World {
     private elements: Element[] = [];
     private updateCbs: OnElementsUpdate[] = [];
 
-    constructor(timer: Timer) {
+    constructor(timer: Timer, private readonly random: Random) {
 
         timer.onTick((interval: number) => {
             this.update(interval);
@@ -84,17 +84,17 @@ export class World {
                  e.value > 0
             );
         
-        if (Math.random() < this.timeScale(newElsPerSec, interval)) {
+        if (this.random.random(0, 1) < this.timeScale(newElsPerSec, interval)) {
             const newElem = {
-                x: random(xMin, xMax),
+                x: this.random.random(xMin, xMax),
                 y: 0,
-                xVel: random(xVelMin, xVelMax),
-                yVel: random(yVelMin, yVelMax),
-                angle: random(angleMin, angleMax),
-                angleVel: random(angleVelMin, angleVelMax),
-                value: random(valueMin, valueMax),
-                valueVel: random(valueVelMin, valueVelMax),
-                size: random(sizeMin, sizeMax),
+                xVel: this.random.random(xVelMin, xVelMax),
+                yVel: this.random.random(yVelMin, yVelMax),
+                angle: this.random.random(angleMin, angleMax),
+                angleVel: this.random.random(angleVelMin, angleVelMax),
+                value: this.random.random(valueMin, valueMax),
+                valueVel: this.random.random(valueVelMin, valueVelMax),
+                size: this.random.random(sizeMin, sizeMax),
             };
             this.elements.push(newElem);
         }
