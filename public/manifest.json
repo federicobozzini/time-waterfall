@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Time Waterfall",
+  "name": "Time Waterfall, inspired by Tatsuo Miyajima",
   "icons": [
     {
       "src": "favicon.ico",
