@@ -4,7 +4,7 @@ Inspired by [Time Waterfall by Tatsuo Miyajima](https://tatsuomiyajima.com/work-
 
 ## Online version
 
-Visit federicobozzini.github.io/time-waterfall
+Visit [federicobozzini.github.io/time-waterfall](https://federicobozzini.github.io/time-waterfall)
 
 ## Development
 
