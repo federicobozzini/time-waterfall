@@ -1,7 +1,7 @@
-@font-face{
-  font-family:'digital-clock-font';
+@font-face {
+  font-family: 'digital-clock-font';
   src: url('fonts/digital-7.ttf');
- }
+}
 
 body {
   width: 100%;
@@ -17,11 +17,11 @@ body {
 }
 
 #app {
-  position:fixed;
-  top:0;
-  left:0;
-  height:100%;
-  width:100%
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }
 
 text {

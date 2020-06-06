@@ -18,10 +18,10 @@ const world = new World(timer, random);
 times(initialRuns, () => timer.tick());
 
 if (!isTest) {
-    timer.start();
+  timer.start();
 }
 
-ReactDOM.render(<App world={world}/>, document.getElementById('root'));
+ReactDOM.render(<App world={world} />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

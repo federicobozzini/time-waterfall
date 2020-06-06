@@ -1,15 +1,12 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 import './App.css';
 import { World, Element } from './World';
 
 interface AppProps {
-
   readonly world: World;
-
 }
 
 const App: React.FC<AppProps> = ({ world }) => {
-  
   const [elements, setElements] = React.useState(world.getElements());
 
   useEffect(() => {
@@ -21,8 +18,13 @@ const App: React.FC<AppProps> = ({ world }) => {
   }, [world]);
 
   return (
-    <svg viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" id='app'>
-      { elements.map((e: Element, i: number) =>
+    <svg
+      viewBox="0 0 100 100"
+      preserveAspectRatio="none"
+      xmlns="http://www.w3.org/2000/svg"
+      id="app"
+    >
+      {elements.map((e: Element, i: number) => (
         <text
           x={e.x}
           y={e.y}
@@ -30,11 +32,11 @@ const App: React.FC<AppProps> = ({ world }) => {
           transform={`rotate(${e.angle})`}
           key={`el-${i}`}
         >
-            {Math.ceil(e.value)}
+          {Math.ceil(e.value)}
         </text>
-      )}
+      ))}
     </svg>
   );
-}
+};
 
 export default App;

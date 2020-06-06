@@ -10,28 +10,30 @@ const snapshotTestingTimeout = 10000;
 const failureThreshold = 0.005;
 
 const matchImageOptions = {
-    failureThreshold,
-    failureThresholdType: 'percent'
+  failureThreshold,
+  failureThresholdType: 'percent',
 } as const;
 
 describe('snapshot testing', () => {
+  let browser: puppeteer.Browser;
 
-    let browser: puppeteer.Browser;
+  beforeAll(async () => {
+    browser = await puppeteer.launch({ args: ['--no-sandbox'] });
+  });
 
-    beforeAll(async () => {
-        browser = await puppeteer.launch({args: ['--no-sandbox']})
-    })
+  it(
+    'renders correctly',
+    async () => {
+      const page = await browser.newPage();
+      await page.goto('http://localhost:3000?test');
+      const image = await page.screenshot();
 
-    it('renders correctly', async () => {
-        const page = await browser.newPage();
-        await page.goto('http://localhost:3000?test');
-        const image = await page.screenshot();
-      
-        expect(image).toMatchImageSnapshot(matchImageOptions);
-    }, snapshotTestingTimeout);
+      expect(image).toMatchImageSnapshot(matchImageOptions);
+    },
+    snapshotTestingTimeout
+  );
 
-    afterAll(async () => {
-      await browser.close();
-    });
-
+  afterAll(async () => {
+    await browser.close();
+  });
 });
