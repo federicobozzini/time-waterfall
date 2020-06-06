@@ -8,12 +8,18 @@ import { Timer } from './Timer';
 import { times } from './utilities';
 import { Random } from './Random';
 
+const params = new URLSearchParams(window.location.search);
+const isTest = params.has('test');
+const seed = isTest ? 'test' : undefined;
 const initialRuns = 1500;
 const timer = new Timer();
-const random = new Random();
+const random = new Random(seed);
 const world = new World(timer, random);
 times(initialRuns, () => timer.tick());
-timer.start();
+
+if (!isTest) {
+    timer.start();
+}
 
 ReactDOM.render(<App world={world}/>, document.getElementById('root'));
 
