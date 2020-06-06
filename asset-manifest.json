@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/time-waterfall/static/css/main.6bf8a0a5.chunk.css",
+    "main.js": "/time-waterfall/static/js/main.a74cbd62.chunk.js",
+    "main.js.map": "/time-waterfall/static/js/main.a74cbd62.chunk.js.map",
+    "runtime-main.js": "/time-waterfall/static/js/runtime-main.208064ea.js",
+    "runtime-main.js.map": "/time-waterfall/static/js/runtime-main.208064ea.js.map",
+    "static/js/2.ac8d6146.chunk.js": "/time-waterfall/static/js/2.ac8d6146.chunk.js",
+    "static/js/2.ac8d6146.chunk.js.map": "/time-waterfall/static/js/2.ac8d6146.chunk.js.map",
+    "index.html": "/time-waterfall/index.html",
+    "precache-manifest.ea0dcdb0e428ee45510d990c36db96fe.js": "/time-waterfall/precache-manifest.ea0dcdb0e428ee45510d990c36db96fe.js",
+    "service-worker.js": "/time-waterfall/service-worker.js",
+    "static/css/main.6bf8a0a5.chunk.css.map": "/time-waterfall/static/css/main.6bf8a0a5.chunk.css.map",
+    "static/js/2.ac8d6146.chunk.js.LICENSE": "/time-waterfall/static/js/2.ac8d6146.chunk.js.LICENSE",
+    "static/media/App.css": "/time-waterfall/static/media/digital-7.1e670d88.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.208064ea.js",
+    "static/js/2.ac8d6146.chunk.js",
+    "static/css/main.6bf8a0a5.chunk.css",
+    "static/js/main.a74cbd62.chunk.js"
+  ]
+}
