@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/time-waterfall/precache-manifest.ea0dcdb0e428ee45510d990c36db96fe.js"
+  "/time-waterfall/precache-manifest.4c190d0bc8f16c1b7839d29fbc503674.js"
 );
 
 self.addEventListener('message', (event) => {
