@@ -14,9 +14,6 @@
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "@types/seedrandom": "^2.4.28",
-    "husky": "^4.2.5",
-    "lint-staged": "^10.2.9",
-    "prettier": "^2.0.5",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-scripts": "3.3.0",
@@ -49,17 +46,15 @@
   "devDependencies": {
     "@types/jest-image-snapshot": "^2.11.1",
     "@types/puppeteer": "^2.0.0",
+    "husky": "^4.2.5",
     "jest-image-snapshot": "^2.11.1",
+    "prettier": "^2.0.5",
+    "pretty-quick": "^2.0.1",
     "puppeteer": "^2.0.0"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "pretty-quick --staged"
     }
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --write"
-    ]
   }
 }
