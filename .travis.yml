@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "stable"
+  - 'stable'
 addons:
   chrome: stable
 before_install:
@@ -9,10 +9,11 @@ cache:
   directories:
     - node_modules
 before_script:
+  - npx prettier --check src
   - yarn start &
 script:
   - yarn test
-  - yarn run build 
+  - yarn run build
 deploy:
   provider: pages
   skip_cleanup: true
