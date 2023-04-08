@@ -10,8 +10,22 @@ Visit [federicobozzini.github.io/time-waterfall](https://federicobozzini.github.
 
 ## Development
 
-Run `yarn start`
+To install the dependencies run
+
+```bash
+    yarn install
+```
+
+To start the application run
+
+```bash
+    yarn start
+```
 
 ## Testing
 
-Run `yarn test`
+To test, make sure the application is running and run
+
+```bash
+    yarn test
+```
