@@ -4,7 +4,7 @@
   "private": true,
   "author": "Federico Bozzini <federico.bozzini@gmail.com>",
   "license": "MIT",
-  "homepage": "https://federicobozzini.github.io/time-waterfall",
+  "homepage": ".",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
