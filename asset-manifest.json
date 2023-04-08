@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/time-waterfall/static/css/main.d48436f9.css",
-    "main.js": "/time-waterfall/static/js/main.a152d8d9.js",
-    "static/media/digital-7.ttf": "/time-waterfall/static/media/digital-7.93911ab167c943140756.ttf",
-    "index.html": "/time-waterfall/index.html",
-    "main.d48436f9.css.map": "/time-waterfall/static/css/main.d48436f9.css.map",
-    "main.a152d8d9.js.map": "/time-waterfall/static/js/main.a152d8d9.js.map"
+    "main.css": "./static/css/main.75d6670c.css",
+    "main.js": "./static/js/main.a152d8d9.js",
+    "static/media/digital-7.ttf": "./static/media/digital-7.93911ab167c943140756.ttf",
+    "index.html": "./index.html",
+    "main.75d6670c.css.map": "./static/css/main.75d6670c.css.map",
+    "main.a152d8d9.js.map": "./static/js/main.a152d8d9.js.map"
   },
   "entrypoints": [
-    "static/css/main.d48436f9.css",
+    "static/css/main.75d6670c.css",
     "static/js/main.a152d8d9.js"
   ]
 }
