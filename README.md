@@ -1,5 +1,6 @@
 # Time Waterfall
-[![Build Status](https://travis-ci.org/federicobozzini/time-waterfall.svg)](https://travis-ci.org/federicobozzini/time-waterfall)
+
+[![CI](https://github.com/federicobozzini/time-waterfall/actions/workflows/ci.yml/badge.svg)](https://github.com/federicobozzini/time-waterfall/actions/workflows/ci.yml)
 
 Inspired by [Time Waterfall by Tatsuo Miyajima](https://tatsuomiyajima.com/work-projects/time-waterfall/)
 
