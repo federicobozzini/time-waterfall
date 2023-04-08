@@ -31,9 +31,13 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
 
-      - name: Build
+      - name: Install
         run: |
           yarn install
+
+      - name: Build
+        run: |
+          yarn build
 
       - name: Check formatting
         run: |
