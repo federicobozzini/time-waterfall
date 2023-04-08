@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: browser-actions/setup-chrome@v1
         with:
-          chrome-version: beta
+          chrome-version: latest
         id: setup-chrome
 
       - run: |
