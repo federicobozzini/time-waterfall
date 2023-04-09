@@ -30,9 +30,9 @@ jobs:
         run: |
           yarn build
 
-      - name: Check formatting
+      - name: Linting
         run: |
-          npx prettier --check src
+          yarn lint
 
       - name: Start app
         run: |
