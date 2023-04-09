@@ -31,9 +31,13 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
 
-      - name: Build
+      - name: Install
         run: |
           yarn install
+
+      - name: Build
+        run: |
+          yarn build
 
       - name: Check formatting
         run: |
@@ -46,3 +50,9 @@ jobs:
       - name: Test
         run: |
           yarn test
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
