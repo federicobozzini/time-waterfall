@@ -69,36 +69,44 @@ export class World {
 
   private update(interval: number) {
     this.elements = this.elements
-      .map((e) => ({
-        ...e,
-        y: e.y + this.timeScale(e.yVel, interval),
-        x: e.x + this.timeScale(e.xVel, interval),
-        angle: e.angle + this.timeScale(e.angleVel, interval),
-        value: e.value - this.timeScale(e.valueVel, interval),
-      }))
-      .filter(
-        (e) =>
-          e.y < yTotMax + e.size &&
-          e.x > xTotMin &&
-          e.x < xTotMax &&
-          e.value > 0
-      );
+      .map((e) => this.updateElement(e, interval))
+      .filter((e) => this.isElementVisible(e));
 
     if (this.random.random(0, 1) < this.timeScale(newElsPerSec, interval)) {
-      const newElem = {
-        x: this.random.random(xMin, xMax),
-        y: 0,
-        xVel: this.random.random(xVelMin, xVelMax),
-        yVel: this.random.random(yVelMin, yVelMax),
-        angle: this.random.random(angleMin, angleMax),
-        angleVel: this.random.random(angleVelMin, angleVelMax),
-        value: this.random.random(valueMin, valueMax),
-        valueVel: this.random.random(valueVelMin, valueVelMax),
-        size: this.random.random(sizeMin, sizeMax),
-      };
+      const newElem = this.getNewElement();
       this.elements.push(newElem);
     }
     this.updateCbs.forEach((cb) => cb(this.elements));
+  }
+
+  private updateElement(e: Element, interval: number): Element {
+    return {
+      ...e,
+      y: e.y + this.timeScale(e.yVel, interval),
+      x: e.x + this.timeScale(e.xVel, interval),
+      angle: e.angle + this.timeScale(e.angleVel, interval),
+      value: e.value - this.timeScale(e.valueVel, interval),
+    };
+  }
+
+  private isElementVisible(e: Element): boolean {
+    return (
+      e.y < yTotMax + e.size && e.x > xTotMin && e.x < xTotMax && e.value > 0
+    );
+  }
+
+  private getNewElement(): Element {
+    return {
+      x: this.random.random(xMin, xMax),
+      y: 0,
+      xVel: this.random.random(xVelMin, xVelMax),
+      yVel: this.random.random(yVelMin, yVelMax),
+      angle: this.random.random(angleMin, angleMax),
+      angleVel: this.random.random(angleVelMin, angleVelMax),
+      value: this.random.random(valueMin, valueMax),
+      valueVel: this.random.random(valueVelMin, valueVelMax),
+      size: this.random.random(sizeMin, sizeMax),
+    };
   }
 
   private timeScale(v: number, interval: number) {
