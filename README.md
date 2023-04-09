@@ -1,5 +1,6 @@
 # Time Waterfall
-[![Build Status](https://travis-ci.org/federicobozzini/time-waterfall.svg)](https://travis-ci.org/federicobozzini/time-waterfall)
+
+[![CI](https://github.com/federicobozzini/time-waterfall/actions/workflows/ci.yml/badge.svg)](https://github.com/federicobozzini/time-waterfall/actions/workflows/ci.yml)
 
 Inspired by [Time Waterfall by Tatsuo Miyajima](https://tatsuomiyajima.com/work-projects/time-waterfall/)
 
@@ -9,8 +10,22 @@ Visit [federicobozzini.github.io/time-waterfall](https://federicobozzini.github.
 
 ## Development
 
-Run `yarn start`
+To install the dependencies run
+
+```bash
+    yarn install
+```
+
+To start the application run
+
+```bash
+    yarn start
+```
 
 ## Testing
 
-Run `yarn test`
+To test, make sure the application is running and run
+
+```bash
+    yarn test
+```

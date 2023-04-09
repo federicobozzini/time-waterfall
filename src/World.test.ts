@@ -9,7 +9,7 @@ let timer: Timer;
 
 describe('World', () => {
   beforeEach(() => {
-    timer = new Timer();
+    timer = new Timer(0);
     random = new Random('test');
     world = new World(timer, random);
   });

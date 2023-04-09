@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install
+        run: |
+          yarn install
+
+      - name: Build
+        run: |
+          yarn build
+
+      - name: Check formatting
+        run: |
+          npx prettier --check src
+
+      - name: Start app
+        run: |
+          yarn start &
+
+      - name: Test
+        run: |
+          yarn test --coverage
+
+      - name: Publish coverage report to Code Climate
+        if: github.ref == 'refs/heads/master'
+        uses: paambaati/codeclimate-action@v3.0.0
+        env:
+          CC_TEST_REPORTER_ID: 62abc336acd7f68ce63ee6b504cf0210c445da115e926633662c1c97e0f5740c
+        with:
+          debug: true
+          coverageLocations: coverage/lcov.info:lcov
+        continue-on-error: true
+
+      - name: Deploy
+        if: github.ref == 'refs/heads/master'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build

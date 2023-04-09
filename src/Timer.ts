@@ -5,6 +5,15 @@ export const MS_INTERVAL = 15;
 export class Timer {
   private readonly cbs: OnTickCallback[] = [];
 
+  private readonly tickMs: number;
+
+  constructor(private readonly interval: number = MS_INTERVAL) {
+    if (interval < 0) {
+      throw Error('Interval cannot be negative');
+    }
+    this.tickMs = interval === 0 ? MS_INTERVAL : interval;
+  }
+
   public start() {
     this.refresh();
   }
@@ -13,14 +22,14 @@ export class Timer {
     this.cbs.push(cb);
   }
 
-  public tick(interval: number = MS_INTERVAL): void {
-    this.cbs.forEach((cb) => cb(interval));
+  public tick(): void {
+    this.cbs.forEach((cb) => cb(this.tickMs));
   }
 
   private refresh(): void {
     setTimeout(() => {
-      this.cbs.forEach((cb) => cb(MS_INTERVAL));
+      this.tick();
       this.refresh();
-    }, MS_INTERVAL);
+    }, this.interval);
   }
 }
