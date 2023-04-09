@@ -49,7 +49,17 @@ jobs:
 
       - name: Test
         run: |
-          yarn test
+          yarn test --coverage
+
+      - name: Publish coverage report to Code Climate
+        if: github.ref == 'refs/heads/master'
+        uses: paambaati/codeclimate-action@v3.0.0
+        env:
+          CC_TEST_REPORTER_ID: 62abc336acd7f68ce63ee6b504cf0210c445da115e926633662c1c97e0f5740c
+        with:
+          debug: true
+          coverageLocations: coverage/lcov.info:lcov
+        continue-on-error: true
 
       - name: Deploy
         if: github.ref == 'refs/heads/master'
