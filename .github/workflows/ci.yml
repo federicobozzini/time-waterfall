@@ -50,6 +50,10 @@ jobs:
   deploy:
     needs: build
 
+    on:
+    push:
+      branches: [master]
+
     runs-on: ubuntu-latest
 
     permissions:
