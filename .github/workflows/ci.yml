@@ -26,10 +26,6 @@ jobs:
         run: |
           yarn install
 
-      - name: Build
-        run: |
-          yarn build
-
       - name: Linting
         run: |
           yarn lint
@@ -50,7 +46,21 @@ jobs:
         with:
           debug: true
           coverageLocations: coverage/lcov.info:lcov
-        continue-on-error: true
+
+  deploy:
+    needs: build
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Build
+        run: |
+          yarn build
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
